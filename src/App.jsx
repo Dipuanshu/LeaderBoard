@@ -34,19 +34,9 @@ export default function App() {
   }, []);
 
   const handleAddUser = async () => {
-    try {
-      const res = await axios.post("/users", { name: newName });
-      setMessage(`✅ User "${res.data.name}" added successfully!`);
-      const updatedUsers = await axios.get("/users");
-      const updatedLeaderboard = await axios.get("/leaderboard");
-      setUsers(updatedUsers.data);
-      setLeaderboard(updatedLeaderboard.data);
-      setSelected(updatedUsers.data[updatedUsers.data.length - 1]?._id || "");
-      setRefreshTrigger((prev) => prev + 1);
-    } catch (err) {
-      console.error("Error adding user:", err);
-      setMessage("❌ Failed to add user");
-    }
+    await fetchAll();
+    setMessage("✅ User added successfully!");
+    setRefreshTrigger((prev) => prev + 1);
   };
 
   return (

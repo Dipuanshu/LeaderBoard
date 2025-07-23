@@ -19,7 +19,10 @@ export default function AddUserForm({ onUserAdded }) {
     try {
       setLoading(true);
       setError("");
-      const res = await axios.post("/users", { name: trimmedName });
+      const res = await axios.post(
+        "https://leaderboard-backend-1-qe97.onrender.com/api/users",
+        { name: trimmedName }
+      );
       if (res.status === 201 || res.status === 200) {
         setName(""); // Reset input
         if (onUserAdded) onUserAdded(); // Inform parent to refresh data

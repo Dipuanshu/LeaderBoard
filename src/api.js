@@ -4,7 +4,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://localhost:5000/api", // backend server URL
+  baseURL: "https://leaderboard-backend-1-qe97.onrender.com/api", // backend server URL
   headers: {
     "Content-Type": "application/json",
   },

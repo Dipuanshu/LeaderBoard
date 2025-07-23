@@ -15,7 +15,7 @@ export default function ClaimHistory({ userId }) {
     const fetchHistory = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/claim-history/${userId}`
+          `https://leaderboard-backend-1-qe97.onrender.com/api/claim-history/${userId}`
         );
         console.log("CLAIM HISTORY API RESPONSE:", res.data);
         setHistory(Array.isArray(res.data) ? res.data : []);
